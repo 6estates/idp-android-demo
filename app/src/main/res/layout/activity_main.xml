@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="8dp"
+    tools:context=".MainActivity">
+
+    <EditText
+        android:id="@+id/et_token"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bg_corner_teal_light"
+        android:hint="Input Access Token"
+        android:maxLines="1"
+        android:padding="10dp"
+        android:textSize="14sp" />
+
+    <Button
+        android:id="@+id/btn_init_token"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="Init Token"
+        android:textAllCaps="false" />
+
+    <Button
+        android:id="@+id/btn_upload"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Submit Task"
+        android:textAllCaps="false" />
+
+    <Button
+        android:id="@+id/btn_result"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Extraction Result"
+        android:textAllCaps="false" />
+
+    <Button
+        android:id="@+id/btn_rotate"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Rotate Image"
+        android:textAllCaps="false" />
+
+</LinearLayout>
