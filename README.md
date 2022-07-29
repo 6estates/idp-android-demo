@@ -20,7 +20,7 @@ An android demo app of integrating 6Estates idp-android SDK
 
    ![](art/submitpictures.gif)
 
-4. Get the extraction result in Json or excel,and Send Excel to email
+4. Get the extraction result in Json or excel, and Send Excel to email
 
    ![](art/result.gif)
 
