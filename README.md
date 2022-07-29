@@ -1,4 +1,4 @@
-# idp-android-demo
+# 6Estates Intelligent Document Platform（IDP) - Android Demo App 
 
 An android demo app of integrating 6Estates idp-android SDK
 
