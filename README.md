@@ -1,6 +1,6 @@
 # idp-android-demo
 
-Demo of use idp-android SDK.
+An android demo app of integrating 6Estates idp-android SDK
 
 ## Download
 
