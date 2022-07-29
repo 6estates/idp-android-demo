@@ -9,3 +9,4 @@ dependencyResolutionManagement {
 }
 rootProject.name = "IdpAndroidDemo"
 include ':app'
+include ':spinner_lib'

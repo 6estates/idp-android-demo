@@ -15,7 +15,9 @@ import com.sixe.idpandroiddemo.R;
 
 import java.util.List;
 
-
+/**
+ * adapter of photo list
+ */
 public class PhotoListAdapter extends RecyclerView.Adapter<PhotoListAdapter.PhotoListViewHolder> {
 
     private List<String> mList;

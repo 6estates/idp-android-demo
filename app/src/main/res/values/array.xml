@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="file_type_alias">
+        <item>ACRA Bizfile</item>
+        <item>Air Waybill</item>
+        <item>Bank Statement</item>
+        <item>Bill of Lading</item>
+        <item>Cheque</item>
+        <item>China ID Card</item>
+        <item>China Passport</item>
+        <item>Credit Bureau Singapore</item>
+        <item>Delivery Order</item>
+        <item>Hong Kong Annual Return</item>
+        <item>Invoice</item>
+        <item>Kartu Tanda Penduduk</item>
+        <item>Nomor Pokok Wajib Pajak</item>
+        <item>Packing List</item>
+        <item>Payslip</item>
+        <item>Purchase Order</item>
+        <item>Receipt</item>
+        <item>Singapore NRIC</item>
+    </string-array>
+
+    <string-array name="file_type">
+        <item>BFP</item>
+        <item>AWBL</item>
+        <item>CBKS</item>
+        <item>BL</item>
+        <item>CHQ</item>
+        <item>ZHID</item>
+        <item>PP</item>
+        <item>CBS</item>
+        <item>DO</item>
+        <item>HKAR</item>
+        <item>CINV</item>
+        <item>KTP</item>
+        <item>NPWP</item>
+        <item>PL</item>
+        <item>PS</item>
+        <item>PO</item>
+        <item>RCPT</item>
+        <item>NRIC</item>
+    </string-array>
+
+</resources>

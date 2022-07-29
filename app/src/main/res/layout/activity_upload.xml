@@ -13,6 +13,16 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 
+    <com.matrix.spinner.MaterialSpinner
+        android:id="@+id/sp_type"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_margin="16dp"
+        android:textSize="16sp"
+        app:ms_arrow_tint="@color/teal_200"
+        app:ms_popupwindow_height="200dp"
+        app:ms_text_color="@color/black_light" />
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

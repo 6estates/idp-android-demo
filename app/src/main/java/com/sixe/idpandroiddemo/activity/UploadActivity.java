@@ -2,11 +2,6 @@ package com.sixe.idpandroiddemo.activity;
 
 import static androidx.core.content.FileProvider.getUriForFile;
 
-import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.GridLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-
 import android.app.Activity;
 import android.content.Intent;
 import android.net.Uri;
@@ -14,6 +9,12 @@ import android.os.Bundle;
 import android.provider.MediaStore;
 import android.widget.Button;
 
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
+import com.matrix.spinner.MaterialSpinner;
 import com.sixe.idp.Idp;
 import com.sixe.idp.activity.CropActivity;
 import com.sixe.idp.bean.FileMimeType;
@@ -34,6 +35,7 @@ public class UploadActivity extends AppCompatActivity {
     private ArrayList<String> mPhotos = new ArrayList<>();
 
     private PhotoListAdapter mPhotoListAdapter;
+    private String mFileTypeStr;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,6 +45,20 @@ public class UploadActivity extends AppCompatActivity {
         findViewById(R.id.iv_back).setOnClickListener(view -> {
             finish();
         });
+
+        String[] fileTypeArray = getResources().getStringArray(R.array.file_type);
+        String[] fileTypeAliasArray = getResources().getStringArray(R.array.file_type_alias);
+
+        MaterialSpinner spType = findViewById(R.id.sp_type);
+        spType.setItems(fileTypeAliasArray);
+        spType.setOnItemSelectedListener(new MaterialSpinner.OnItemSelectedListener<String>() {
+            @Override
+            public void onItemSelected(MaterialSpinner view, int position, long id, String item) {
+                mFileTypeStr = fileTypeArray[position];
+            }
+        });
+        spType.setSelectedIndex(0);
+        mFileTypeStr = FileMimeType.FILE_ACRA_BIZFILE;
 
         // submit pdf
         findViewById(R.id.btn_pdf).setOnClickListener(view -> {
@@ -62,7 +78,7 @@ public class UploadActivity extends AppCompatActivity {
         btnSubmit.setOnClickListener(view -> {
             TaskInfo taskInfo = new TaskInfo.Builder()
                     .imagePaths(mPhotos)
-                    .fileType(FileMimeType.FILE_BANK_STATEMENT)
+                    .fileType(mFileTypeStr)
                     .hitl(false)
                     .build();
             ExtractSubmitter.submitImages(taskInfo, new TaskCallback() {
@@ -89,19 +105,19 @@ public class UploadActivity extends AppCompatActivity {
         super.onActivityResult(requestCode, resultCode, data);
         if (resultCode == Activity.RESULT_OK) {
             if (requestCode == 10 && data != null) {
-                // pdf
                 Uri uri = data.getData();
-
+                // request parameter
                 String path = FilePathUtils.getFilePath(UploadActivity.this, uri);
                 TaskInfo taskInfo = new TaskInfo.Builder()
                         .filePath(path)
-                        .fileType(FileMimeType.FILE_BANK_STATEMENT)
+                        .fileType(mFileTypeStr)
                         .hitl(false)
                         .build();
-
+                // submit PDF
                 ExtractSubmitter.submitPdf(taskInfo, new TaskCallback() {
                     @Override
                     public void success(int id) {
+                        // id is task id
                         ToastUtil.show(UploadActivity.this, "id is " + id);
                     }
 
@@ -111,11 +127,12 @@ public class UploadActivity extends AppCompatActivity {
                     }
                 });
             } else if (requestCode == 100) {
-                // photo
+                // crop photo
                 Intent intent = new Intent(UploadActivity.this, CropActivity.class);
                 intent.putExtra(Idp.IMAGE_PATH, currentPhotoPath);
                 startActivityForResult(intent, 101);
             } else if (requestCode == 101 && data != null) {
+                // result of crop photo
                 String imgPath = data.getStringExtra(Idp.CROP_IMAGE_PATH);
                 mPhotos.add(imgPath);
                 mPhotoListAdapter.notifyDataSetChanged();

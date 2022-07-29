@@ -45,20 +45,24 @@ public class MainActivity extends AppCompatActivity {
             requestMyPermissions();
         }
 
+        // init
         EditText etToken = findViewById(R.id.et_token);
         findViewById(R.id.btn_init_token).setOnClickListener(view -> {
             String token = etToken.getText().toString();
             Idp.init(MainActivity.this, token);
         });
 
+        // submit task
         findViewById(R.id.btn_upload).setOnClickListener(view -> {
             startActivity(new Intent(MainActivity.this, UploadActivity.class));
         });
 
+        // get result
         findViewById(R.id.btn_result).setOnClickListener(view -> {
             startActivity(new Intent(MainActivity.this, ResultActivity.class));
         });
 
+        // rotate image
         findViewById(R.id.btn_rotate).setOnClickListener(view -> {
             startActivity(new Intent(MainActivity.this, RotateActivity.class));
         });
