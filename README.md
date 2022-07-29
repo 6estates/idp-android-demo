@@ -2,7 +2,9 @@
 
 An android demo app of integrating 6Estates idp-android SDK
 
-## Download APK(art/IdpAndroidDemo_v1.0.apk)
+## Download APK
+
+![Download](art/IdpAndroidDemo_v1.0.apk)
 
 ## Function
 
