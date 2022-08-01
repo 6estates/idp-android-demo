@@ -1,31 +1,23 @@
 # 6Estates Intelligent Document Platform（IDP) - Android Demo App
 
-An android demo app of integrating 6Estates idp-android SDK
+An Android demo app for integrating 6Estates idp-android SDK to process document. 
 
 ## Download APK
 
-![Download](art/IdpAndroidDemo_v1.0.apk)
+You may download the compiled APK via this link [IDP Android Demo App APK](art/IdpAndroidDemo_v1.0.apk)
 
-## Function
+## Features
 
-1. Enter a token to initialize
+The following are the highlighted features the Demo App contains,
 
-   ![](art/init.jpg)
-
-2. Select a PDF to submit
-
+1. Select a PDF file or image to process
+   
    ![](art/submitpdf.gif)
 
-3. Select multiple pictures to submit,and crop picture
-
+2. Take one or multiple photos to adjust and process
+   
    ![](art/submitpictures.gif)
 
-4. Get the extraction result in Json or excel, and Send Excel to email
-
+3. Get the extraction result in JSON and Excel format, or send the Excel result to your email address.
+   
    ![](art/result.gif)
-
-5. Rotate image
-
-   ![](art/rotate.gif)
-  
-
