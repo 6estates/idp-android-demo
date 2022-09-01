@@ -1,6 +1,7 @@
 package com.sixe.idpandroiddemo.activity;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -9,6 +10,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.sixe.idp.core.ResultCallback;
 import com.sixe.idp.core.ResultExtractor;
+import com.sixe.idp.utils.PreferencesUtil;
 import com.sixe.idp.utils.ToastUtil;
 import com.sixe.idpandroiddemo.R;
 
@@ -21,13 +23,12 @@ public class ResultActivity extends AppCompatActivity {
 
         // task id
         EditText etId = findViewById(R.id.et_id);
-        String taskId = etId.getText().toString();
 
         TextView tvResult = findViewById(R.id.tv_result);
         // get json result by task id
         Button btnSearch = findViewById(R.id.btn_search);
         btnSearch.setOnClickListener(view -> {
-
+            String taskId = etId.getText().toString();
             ResultExtractor.extractResultByTaskId(taskId, new ResultCallback() {
                 @Override
                 public void success(String data) {
@@ -48,7 +49,7 @@ public class ResultActivity extends AppCompatActivity {
         // get excel result by task id
         Button btnExcel = findViewById(R.id.btn_excel);
         btnExcel.setOnClickListener(view -> {
-
+            String taskId = etId.getText().toString();
             ResultExtractor.getTaskExcel(ResultActivity.this, taskId, new ResultCallback() {
                 @Override
                 public void success(String data) {
@@ -68,6 +69,7 @@ public class ResultActivity extends AppCompatActivity {
         EditText etEmail = findViewById(R.id.et_email);
         Button btnSendEmail = findViewById(R.id.btn_send_email);
         btnSendEmail.setOnClickListener(view -> {
+            String taskId = etId.getText().toString();
             String email = etEmail.getText().toString();
             ResultExtractor.sendEmail(ResultActivity.this, taskId, taskId + ".excel", email, new ResultCallback() {
                 @Override

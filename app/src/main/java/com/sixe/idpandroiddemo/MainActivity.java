@@ -50,6 +50,7 @@ public class MainActivity extends AppCompatActivity {
         findViewById(R.id.btn_init_token).setOnClickListener(view -> {
             String token = etToken.getText().toString();
             Idp.init(MainActivity.this, token);
+            ToastUtil.show(MainActivity.this, "Init Success");
         });
 
         // submit task
