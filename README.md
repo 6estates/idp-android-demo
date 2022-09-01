@@ -21,3 +21,7 @@ The following are the highlighted features the Demo App contains,
 3. Get the extraction result in JSON and Excel format, or send the Excel result to your email address.
    
    ![](art/result.gif)
+
+4. Take one photo and rotate it
+
+   ![](art/rotate.gif)
